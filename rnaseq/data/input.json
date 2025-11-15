@@ -1,0 +1,22 @@
+[
+    {
+        "id": "gut",
+        "fastq_1": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_gut_1.fq",
+        "fastq_2": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_gut_2.fq"
+    },
+    {
+        "id": "liver",
+        "fastq_1": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_liver_1.fq",
+        "fastq_2": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_liver_2.fq"
+    },
+    {
+        "id": "lung",
+        "fastq_1": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_lung_1.fq",
+        "fastq_2": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_lung_2.fq"
+    },
+    {
+        "id": "spleen",
+        "fastq_1": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_spleen_1.fq",
+        "fastq_2": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/refs/heads/master/data/ggal/ggal_spleen_2.fq"
+    }
+]

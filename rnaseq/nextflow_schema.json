@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/nextflow-io/rnaseq-nf/master/nextflow_schema.json",
+  "title": "rnaseq-nf pipeline parameters",
+  "description": "Proof of concept of a RNA-seq pipeline implemented with Nextflow",
+  "type": "object",
+  "definitions": {
+    "input_output_options": {
+      "title": "Input/output options",
+      "type": "object",
+      "fa_icon": "fas fa-terminal",
+      "description": "Define where the pipeline should find input data and save output data.",
+      "properties": {
+        "reads": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^\\S+$",
+                "errorMessage": "Sample name must be provided and cannot contain spaces"
+              },
+              "fastq_1": {
+                "type": "string",
+                "format": "file-path",
+                "exists": true,
+                "pattern": "^([\\S\\s]*\\/)?[^\\s\\/]+\\.f(ast)?q\\.gz$",
+                "errorMessage": "FastQ file for reads 1 must be provided, cannot contain spaces and must have extension '.fq.gz' or '.fastq.gz'"
+              },
+              "fastq_2": {
+                "type": "string",
+                "format": "file-path",
+                "exists": true,
+                "pattern": "^([\\S\\s]*\\/)?[^\\s\\/]+\\.f(ast)?q\\.gz$",
+                "errorMessage": "FastQ file for reads 2 cannot contain spaces and must have extension '.fq.gz' or '.fastq.gz'"
+              },
+              "strandedness": {
+                "type": "string",
+                "errorMessage": "Strandedness must be provided and be one of 'auto', 'forward', 'reverse' or 'unstranded'",
+                "enum": ["forward", "reverse", "unstranded", "auto"]
+              }
+            },
+            "required": ["id", "fastq_1", "strandedness"]
+          },
+          "description": "The input read-pair files",
+          "fa_icon": "fas fa-folder-open"
+        },
+        "transcriptome": {
+          "type": "string",
+          "format": "file-path",
+          "exists": true,
+          "description": "The input transcriptome file",
+          "fa_icon": "fas fa-folder-open"
+        },
+        "multiqc": {
+          "type": "string",
+          "format": "file-path",
+          "exists": true,
+          "description": "Directory containing multiqc configuration",
+          "fa_icon": "fas fa-folder-open",
+          "default": "${projectDir}/multiqc"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/definitions/input_output_options"
+    }
+  ]
+}

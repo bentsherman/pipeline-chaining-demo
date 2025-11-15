@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/nf-core/fetchngs/master/nextflow_schema.json",
+  "title": "nf-core/fetchngs pipeline parameters",
+  "description": "Pipeline to fetch metadata and raw FastQ files from public databases",
+  "type": "object",
+  "$defs": {
+    "input_options": {
+      "title": "Input options",
+      "type": "object",
+      "fa_icon": "fas fa-terminal",
+      "description": "Define where the pipeline should find input data and save output data.",
+      "required": ["input"],
+      "properties": {
+        "input": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(((SR|ER|DR)[APRSX])|(SAM(N|EA|D))|(PRJ(NA|EB|DB))|(GS[EM]))(\\d+)$",
+            "errorMessage": "Please provide a valid SRA, ENA, DDBJ or GEO identifier"
+          },
+          "fa_icon": "fas fa-file-excel",
+          "description": "File containing SRA/ENA/GEO/DDBJ identifiers one per line to download their associated metadata and FastQ files."
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/$defs/input_options"
+    }
+  ]
+}
