@@ -1,5 +1,5 @@
 
-samples = file(params.samples)
+reads = file(params.samples)
     .splitJson()
     .collect { sample ->
         sample + [strandedness: params.strandedness]

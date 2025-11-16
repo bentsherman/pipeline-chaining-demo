@@ -27,7 +27,7 @@ output {
             sample.md5_2 >> 'fastq/md5/'
         }
         index {
-            path 'samples.json'
+            path 'samples-fetchngs.json'
         }
     }
 }
