@@ -9,7 +9,7 @@ $NXF_CMD -q run fetchngs -profile test -output-dir results/fetchngs > results/fe
 
 cat results/fetchngs/output.json | jq
 
-$NXF_CMD -q run fetchngs-rnaseq/main-explicit.nf --samples results/fetchngs/samples.json --strandedness auto -output-dir results/fetchngs-rnaseq | jq
+$NXF_CMD -q run fetchngs-rnaseq --samples results/fetchngs/samples.json --strandedness auto -output-dir results/fetchngs-rnaseq | jq
 
 $NXF_CMD -q run rnaseq -profile test --reads results/fetchngs/samples.json -output-dir results/rnaseq > results/rnaseq/output.json
 
